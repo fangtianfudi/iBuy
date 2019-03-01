@@ -1,0 +1,74 @@
+#!/user/bin/python3
+# -*- coding: UTF-8 -*-
+from selenium import webdriver
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.keys import Keys
+import datetime
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support.ui import Select
+from selenium.webdriver.support.select import Select
+import os
+import pyautogui
+import configparser
+import time
+
+
+chromeOptions = webdriver.ChromeOptions()
+prefs = {"download.default_directory": r"E:\14 Power BI\SR"}
+
+chromeOptions.add_experimental_option("prefs", prefs)
+driver = webdriver.Chrome(options=chromeOptions)
+driver.implicitly_wait(10)
+driver.maximize_window()
+time.sleep(1)
+driver.get("http://w3.huawei.com/ibuy/sourcingrule/SourcingRuleAction.do?actionFlag=mySRList&currentPath=/2636/2639/2790/2792")
+time.sleep(5)
+
+SrStatusElements = driver.find_element_by_name('searchHead.srStatus')
+SrStatus = Select(SrStatusElements)
+SrStatus.select_by_visible_text('APPROVED')
+
+TenderStatusElements = driver.find_element_by_name('searchHead.tenderStatus')
+TenderStatus = Select(TenderStatusElements)
+TenderStatus.select_by_visible_text('APPROVED')
+
+driver.find_element_by_xpath("//input[@value='Search']").click()
+
+time.sleep(10)
+
+driver.find_element_by_xpath("//input[@value='Export To Excel']").click()
+
+driver.get('http://w3.huawei.com/ibuy/downloadList.do?actionFlag=queryDownloadList')
+
+alert = driver.switch_to_alert()
+
+alert.accept()
+
+time.sleep(100)
+
+driver.refresh()
+
+driver.find_element_by_xpath('/html[1]/body[1]/div[6]/form[1]/table[2]/tbody[1]/tr[1]/td[11]/a[1]/img[1]').click()
+
+time.sleep(10)
+
+driver.quit()
+
+
+# driver.find_element_by_id("wa_tasklist_allBtn").click()
+# time.sleep(8)
+# driver.find_element_by_id("wa_tasklist_pageSize").click()
+# pyautogui.press(['down']*5,interval=1)
+# pyautogui.hotkey('enter')
+#
+# time.sleep(8)
+#
+# driver.find_element_by_xpath("(//a[@href='javascript:void(0);'])[5]").click()
+# time.sleep(1)
+#
+# time.sleep(2)
+# driver.find_element_by_xpath("(//div[@class='igrid-innercell'])[1]").click()
+# time.sleep(1)
+# driver.find_element_by_xpath("//samp[text()='Export']").click()
+# time.sleep(50)
+# driver.quit()
