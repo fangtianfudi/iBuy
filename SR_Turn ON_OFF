@@ -1,24 +1,9 @@
 #!/user/bin/python3
-# -*- coding: UTF-8 -*-
-from selenium import webdriver
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.common.keys import Keys
-import datetime
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support.ui import Select
-from selenium.webdriver.support.select import Select
-import os
-import pyautogui
-import configparser
-import time
 
-chromeOptions = webdriver.ChromeOptions()
-prefs = {"download.default_directory": r"E:\14 Power BI\SR"}
+def m1()
+    print('侯亚楠')
+    print('方忠甫')
 
-chromeOptions.add_experimental_option("prefs", prefs)
-driver = webdriver.Chrome(options=chromeOptions)
-driver.implicitly_wait(10)
-driver.maximize_window()
-time.sleep(1)
-
-print('翻天覆地')
+def m2()
+    print('方嘉佑')
+    print('方嘉瑞')
