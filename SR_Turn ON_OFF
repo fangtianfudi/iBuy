@@ -1,3 +1,5 @@
+#!/user/bin/python3
+# -*- coding: UTF-8 -*-
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
@@ -10,4 +12,13 @@ import pyautogui
 import configparser
 import time
 
-print("翻天覆地")
+chromeOptions = webdriver.ChromeOptions()
+prefs = {"download.default_directory": r"E:\14 Power BI\SR"}
+
+chromeOptions.add_experimental_option("prefs", prefs)
+driver = webdriver.Chrome(options=chromeOptions)
+driver.implicitly_wait(10)
+driver.maximize_window()
+time.sleep(1)
+
+print('翻天覆地')
