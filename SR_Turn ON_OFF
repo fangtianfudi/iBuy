@@ -1,9 +1,5 @@
-#!/user/bin/python3
 
-def m1()
-    print('侯亚楠')
-    print('方忠甫')
-
-def m2()
-    print('方嘉佑')
-    print('方嘉瑞')
+print('侯亚楠')
+print('方忠甫')
+print('方嘉佑')
+print('方嘉瑞')
